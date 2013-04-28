@@ -16,5 +16,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Capistrano::Nrsysmond::VERSION
 
-  gem.add_runtime_dependency "capistrano"
+  gem.add_runtime_dependency "capistrano", '~>2.0'
 end
