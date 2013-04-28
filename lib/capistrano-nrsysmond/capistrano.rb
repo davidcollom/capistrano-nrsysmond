@@ -17,6 +17,20 @@ Capistrano::Configuration.instance(:must_exist).load do
       task :default do
         install::default
       end
+      namespace :uninstall do
+        task :default do
+          abort "nrsysmond not found?" unless remote_file_exists? '/etc/newrelic/nrsysmond.cfg'
+          debian if remote_file_exists? '/etc/debian_version'
+          redhat if remote_file_exists? '/etc/redhat-release'
+        end
+        task :debian do
+          sudo 'rm -f /etc/apt/sources.list.d/newrelic.list && apt-get remove newrelic-sysmond'
+        end
+        task :redhat do
+          sudo "yum uninstall -y newrelic-sysmond newrelic-repo-5-3.noarch.rpm"
+        end
+        before :default, '::newrelic::sysmond::stop'
+      end
       namespace :install do
         task :default do
           unless remote_file_exists? '/etc/newrelic/nrsysmond.cfg'
