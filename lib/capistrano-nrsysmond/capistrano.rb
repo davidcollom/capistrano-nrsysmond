@@ -1,21 +1,20 @@
 Capistrano::Configuration.instance(:must_exist).load do
 
-  set :newrelic_licencekey, nil
-
-  namespace :newrelic do
-    desc 'Installs the newrelic sysmond'
-    namespace :sysmond do
-      task :default do
-        if newrelic_licencekey.nil?
-          abort  <<-ERROR 
+  _cset :newrelic_licencekey, {
+    abort  <<-ERROR 
             define :newrelic_licencekey
 
             This can be done via:
               config/deploy.rb:
                 set :newrelic_licencekey, 'sakjfhsdjkgd'
               $ cap deploy -s newrelic_licencekey=325398572395
-          ERROR
-        end
+    ERROR
+  }
+
+  namespace :newrelic do
+    desc 'Installs the newrelic sysmond'
+    namespace :sysmond do
+      task :default do
         install::default
       end
       namespace :install do
