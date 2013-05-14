@@ -35,7 +35,7 @@ Prepend your config/deploy.rb with the following lines
 # Credits
 * Jamis Buck ([Capistrano's](https://github.com/capistrano) original author)
 * [Patrick Reagan](http://stackoverflow.com/users/206390/patrick-reagan) for the `remote_file_exists?` method example from [How can you check to see if a file exists (on the remote server) in Capistrano?](http://stackoverflow.com/questions/1661586/how-can-you-check-to-see-if-a-file-exists-on-the-remote-server-in-capistrano)
-[NewRelic](http://www.newrelic.com/)
+* [NewRelic](http://www.newrelic.com/)
 * Mitchell Hashimoto [@mitchellh](https://twitter.com/mitchellh) (http://tech.pro/tutorial/1226/basic-rubygem-development) 
 
 ## Contributing
