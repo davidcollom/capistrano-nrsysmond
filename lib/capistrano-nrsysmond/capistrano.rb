@@ -1,7 +1,7 @@
 Capistrano::Configuration.instance(:must_exist).load do
 
-  _cset :newrelic_licencekey, {
-    abort  <<-ERROR 
+  _cset(:newrelic_licencekey) {
+    abort  <<-ERROR
             define :newrelic_licencekey
 
             This can be done via:
