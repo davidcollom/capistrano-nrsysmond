@@ -38,10 +38,11 @@ Capistrano::Configuration.instance(:must_exist).load do
             redhat if remote_file_exists? '/etc/redhat-release'
           end
         end
-        task :debian do 
-          run 'if [! -e /etc/apt/sources.list.d/newrelic.list ]; then echo "deb http://apt.newrelic.com/debian/ newrelic non-free" > /etc/apt/sources.list.d/newrelic.list; fi'
-          run 'wget -O- http://download.newrelic.com/548C16BF.gpg | sudo apt-key add -'
-          sudo 'apt-get update && apt-get install newrelic-sysmond'
+        task :debian do
+          run "echo \"deb http://apt.newrelic.com/debian/ newrelic non-free\" > /tmp/newrelic.list"
+          sudo "cp /tmp/newrelic.list /etc/apt/sources.list.d/newrelic.list"
+          run 'wget -O- http://download.newrelic.com/548C16BF.gpg 2>/dev/null | sudo apt-key add -'
+          run "#{sudo} apt-get update && #{sudo} apt-get install newrelic-sysmond"
         end
         task :redhat do
           sudo "rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/$(uname -m)/newrelic-repo-5-3.noarch.rpm || true"
