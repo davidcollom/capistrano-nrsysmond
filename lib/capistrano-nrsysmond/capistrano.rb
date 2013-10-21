@@ -43,6 +43,7 @@ Capistrano::Configuration.instance(:must_exist).load do
           sudo "cp /tmp/newrelic.list /etc/apt/sources.list.d/newrelic.list"
           run 'wget -O- http://download.newrelic.com/548C16BF.gpg 2>/dev/null | sudo apt-key add -'
           run "#{sudo} apt-get update && #{sudo} apt-get install newrelic-sysmond"
+          configure
         end
         task :redhat do
           sudo "rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/$(uname -m)/newrelic-repo-5-3.noarch.rpm || true"
