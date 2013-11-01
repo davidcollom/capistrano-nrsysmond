@@ -50,3 +50,7 @@ Prepend your config/deploy.rb with the following lines
 
 http://github.com/davidcollom/capistrano-nrsysmond/issues
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/davidcollom/capistrano-nrsysmond/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
