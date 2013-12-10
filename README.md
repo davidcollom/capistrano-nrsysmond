@@ -1,8 +1,10 @@
 # Capistrano-nrsysmond
-
-## This is a work in progress
+[![Code Climate](https://codeclimate.com/github/davidcollom/capistrano-nrsysmond.png)](https://codeclimate.com/github/davidcollom/capistrano-nrsysmond)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/davidcollom/capistrano-nrsysmond/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Capistrano recipe for installing the newrelic sysmond service on multiple operating systems.
+
+
 
 ## Installation
 
@@ -52,5 +54,4 @@ http://github.com/davidcollom/capistrano-nrsysmond/issues
 
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/davidcollom/capistrano-nrsysmond/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
